@@ -1,4 +1,4 @@
-import React, { FormEvent, useState } from "react";
+import React, { FormEvent, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { ReactComponent as Logo } from "../assets/logo.svg";
@@ -64,6 +64,12 @@ function Register() {
       }
     }
   };
+
+  useEffect(() => {
+    if (localStorage.getItem("chat-app-user")) {
+      navigate("/chat");
+    }
+  }, [navigate]);
 
   return (
     <>
