@@ -139,7 +139,7 @@ const FormContainer = styled.div`
     }
   }
   button {
-    background-color: #4e0eff;
+    background-color: #997af0;
     color: white;
     padding: 1rem 2rem;
     border: none;
@@ -149,7 +149,7 @@ const FormContainer = styled.div`
     font-size: 1rem;
     text-transform: uppercase;
     &:hover {
-      opacity: 0.7;
+      background-color: #4e0eff;
     }
   }
   span {
