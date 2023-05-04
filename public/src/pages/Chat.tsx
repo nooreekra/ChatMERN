@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { allUsersRoute } from "../utils/APIRoutes";
+import Contacts from "../components/Contacts";
+import Welcome from "../components/Welcome";
 
-type UserType = {
+export type UserType = {
   email: string;
   username: string;
   avatarImage: string;
@@ -17,6 +19,7 @@ function Chat() {
   const navigate = useNavigate();
   const [contacts, setContacts] = useState([]);
   const [currentUser, setCurrentUser] = useState<UserType>();
+  const [currentChat, setCurrentChat] = useState(undefined);
 
   useEffect(() => {
     const user = localStorage.getItem("chat-app-user");
@@ -39,11 +42,26 @@ function Chat() {
       }
     };
     fetchData();
-  }, []);
+  }, [currentUser, navigate]);
+
+  const handleChatChange = (chat: any) => {
+    setCurrentChat(chat);
+  };
 
   return (
     <Container>
-      <div className="container"></div>
+      <div className="container">
+        {currentUser && (
+          <>
+            <Contacts
+              contacts={contacts}
+              currentUser={currentUser}
+              changeChat={handleChatChange}
+            />
+            <Welcome currentUser={currentUser}/>
+          </>
+        )}
+      </div>
     </Container>
   );
 }
@@ -70,6 +88,3 @@ const Container = styled.div`
 `;
 
 export default Chat;
-function useEffect(arg0: () => void, arg1: never[]) {
-  throw new Error("Function not implemented.");
-}
