@@ -2,12 +2,18 @@ import React from "react";
 import { UserType } from "../pages/Chat";
 import styled from "styled-components";
 import Logout from "./Logout";
+import ChatInput from "./ChatInput";
+import Messages from "./Messages";
 
 type ChatContainerType = {
   currentChat: UserType;
 };
 
 export default function ChatContainer({ currentChat }: ChatContainerType) {
+    const handleSendMsg = async (msg: any) => {
+
+    }
+
   return <Container>
     <div className="chat-header">
         <div className="user-details">
@@ -21,8 +27,8 @@ export default function ChatContainer({ currentChat }: ChatContainerType) {
         <Logout />
 
     </div>
-    <div className="chat-messages"></div>
-    <div className="chat-input"></div>
+    <Messages />
+    <ChatInput handleSendMsg={handleSendMsg}/>
   </Container>;
 }
 
