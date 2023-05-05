@@ -68,7 +68,7 @@ function Chat() {
               changeChat={handleChatChange}
             />
             {
-             (isLoaded && currentChat === undefined) ? <Welcome currentUser={currentUser} /> : currentChat && <ChatContainer currentChat={currentChat} />
+             (isLoaded && currentChat === undefined) ? <Welcome currentUser={currentUser} /> : currentChat && <ChatContainer currentChat={currentChat} currentUser={currentUser} />
             }
             
           </>
