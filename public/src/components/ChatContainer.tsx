@@ -11,7 +11,7 @@ type ChatContainerType = {
 
 export default function ChatContainer({ currentChat }: ChatContainerType) {
     const handleSendMsg = async (msg: any) => {
-
+        alert('sent')
     }
 
   return <Container>
